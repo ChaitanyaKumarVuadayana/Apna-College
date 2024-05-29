@@ -1,0 +1,30 @@
+import java.util.Stack;
+
+class Solution {
+    static void reverseSt(Stack<Integer> St) {
+        if (St.isEmpty()) {
+            return;
+        }
+        int Top = St.pop();
+        reverseSt(St);
+        pushAtBottom(St, Top);
+    }
+    static void pushAtBottom(Stack<Integer> St, int data) {
+        if (St.isEmpty()) {
+            St.push(data);
+            return;
+        }
+        int Top = St.pop();
+        pushAtBottom(St, data);
+        St.push(Top);
+    } 
+    public static void main(String[] args) {
+        Stack<Integer> St = new Stack<>();
+        St.push(1);
+        St.push(2);
+        St.push(3);
+        System.out.println("Default: " + St);
+        reverseSt(St);
+        System.out.println("Reversed: " + St);
+    }
+}
