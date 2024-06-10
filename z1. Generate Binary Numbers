@@ -1,0 +1,21 @@
+import java.util.Stack;
+public class Interleave {
+    static int getBin(int num) {
+        Stack<Integer> S = new Stack<>();
+        while(num>0){
+            S.add(num%2);
+            num /= 2;
+        }
+        int out = 0;
+        while(!S.isEmpty()) {
+            out = out*10+S.pop();
+        }
+        return out;
+    }
+    public static void main(String [] args) {
+        int N = 5;
+        for (int i=1; i<=N; i++) {
+            System.out.print(getBin(i) + " ");
+        }
+    }
+}
