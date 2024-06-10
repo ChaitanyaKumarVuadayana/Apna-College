@@ -1,0 +1,28 @@
+import java.util.Stack;
+
+public class Queue_2Stacks {
+    static Stack<Integer> St1 = new Stack<>();
+    static Stack<Integer> St2 = new Stack<>();
+    static void insert(int data) {
+        if (St1.isEmpty()) {
+            St1.add(data);
+        } else {
+            while(!St1.isEmpty()) {
+                St2.add(St1.pop());
+            }
+            St1.add(data);
+            while(!St2.isEmpty()) {
+                St1.add(St2.pop());
+            }
+        }
+    } 
+    public static void main(String [] args) {
+        insert(1);
+        insert(2);
+        insert(3);
+
+        while(!St1.isEmpty()) {
+            System.out.print(St1.pop() + " ");
+        }
+    }
+}
