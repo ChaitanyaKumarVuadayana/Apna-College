@@ -1,0 +1,24 @@
+import java.util.Queue;
+import java.util.LinkedList;
+public class Solution {
+    public static void main(String [] args) {
+        String str = "aabccxb";
+        Queue<Character> Q = new LinkedList<>();
+        Queue<Character> Q1 = new LinkedList<>();
+        
+        for (int i=0; i<str.length(); i++) {
+            Character in = str.charAt(i);
+            if (!Q1.contains(in)) {
+                Q.add(in);
+                Q1.add(in);
+            } else {
+                Q.remove(in);
+            }
+            if (!Q.isEmpty()) {
+                System.out.println(Q.peek());
+            } else {
+                System.out.println(-1);
+            }
+        }
+    }
+}
