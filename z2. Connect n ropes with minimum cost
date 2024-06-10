@@ -1,0 +1,23 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+public class Interleave {
+    public static void main(String [] args) {
+        int [] arr = {1,2,3};
+        List<Integer> I = new LinkedList<>();
+        for (int i=0; i<arr.length; i++) {
+            I.add(arr[i]);
+        }
+        int sum = 0;
+        int fsum = 0;
+        while (I.size()!=1) {
+            Collections.sort(I);
+            sum = I.get(0)+I.get(1);
+            fsum = fsum + sum;
+            I.remove(0);
+            I.remove(0);
+            I.add(sum);
+        }
+        System.out.println(fsum);
+    }
+}
