@@ -1,0 +1,21 @@
+import java.util.Queue;
+import java.util.LinkedList;
+public class Interleave {
+    static void reverseQ(Queue<Integer> Q) {
+        if (Q.isEmpty()){
+            return;
+        }
+        int Top = Q.poll();
+        reverseQ(Q);
+        Q.add(Top);
+    }
+    public static void main(String [] args) {
+        Queue<Integer> Q = new LinkedList<>();
+        for (int i=0; i<5; i++){ 
+            Q.add(i+1);
+        }
+        System.out.println(Q);
+        reverseQ(Q);
+        System.out.println(Q);
+    }
+}
