@@ -1,0 +1,21 @@
+import java.util.Queue;
+import java.util.LinkedList;
+public class Interleave {
+    public static void main(String [] args) {
+        Queue<Integer> Q = new LinkedList<>();
+        for (int i=0; i<10; i++){ 
+            Q.add(i+1);
+        }
+        System.out.println(Q);
+        Queue<Integer> Qnew = new LinkedList<>();
+        int len = Q.size();
+        for (int i = 0; i<len/2; i++) {
+            Qnew.add(Q.poll());
+        }
+        for (int i = 0; i<len/2; i++) {
+            Q.add(Qnew.poll());
+            Q.add(Q.poll());
+        }
+        System.out.println(Q);
+    }
+}
