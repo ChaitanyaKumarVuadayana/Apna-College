@@ -1,0 +1,21 @@
+
+class test {
+    public static void main(String [] args) {
+        String str = "abcd";
+        combinations(str, "", 0);
+    }
+
+    static void combinations(String str, String ans, int i) {
+        // Base Case
+        if (i == str.length()) {
+            System.out.println(ans);
+            return;
+        }
+
+        //Yes Case
+        combinations(str, ans+str.charAt(i), i+1);
+        
+        //No Case
+        combinations(str, ans, i+1);
+    }
+}
