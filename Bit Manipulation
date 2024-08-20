@@ -1,0 +1,46 @@
+class FAT {
+    public static void main(String [] args) {
+        int n = 15;
+        int i = 2;
+
+
+        // ODD or EVEN
+        System.out.println(oddeven(n));
+
+        // Get bit 5 (101)
+        System.out.println("Bit at " + i + " is " + getBit(n, i));
+
+        // Set bit 5(101) -> 7(111)
+        System.out.println(n + " to " + setBit(n, i));
+
+        // Clear bit 5(101) -> 4(100)
+        System.out.println(n + " to " + clearBit(n, i));
+        
+        // Clears last i bits 14(1110) -> 8(1000)
+        System.out.println(n + " to " + lastiBits(n, i));
+    }
+
+    static String oddeven(int n) {
+        return (n&1) == 1 ? "Odd" : "Even";
+    }
+
+    static int getBit(int n, int i) {
+        int mask = 1 << i;
+        return (n&mask) == 0 ? 0 : 1;
+    }
+
+    static int setBit(int n, int i) {
+        int mask = 1<<i;
+        return n|mask;
+    }
+
+    static int clearBit(int n, int i) {
+        int mask = 1<<i;
+        return n^mask;
+    }
+
+    static int lastiBits(int n, int i) {
+        int mask = -1<<i;
+        return n&mask;
+    }    
+}
